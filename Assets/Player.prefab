@@ -105,6 +105,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4327571385245892246}
   - component: {fileID: 5069349101803621208}
+  - component: {fileID: -3132408663493108079}
   - component: {fileID: 7137151276243688556}
   m_Layer: 0
   m_Name: Player
@@ -149,6 +150,18 @@ MonoBehaviour:
   missile: {fileID: 2735180690616760460, guid: 556ed05b0c06cff47809c6e21e7802df, type: 3}
   canon: {fileID: 8766659299930842718}
   explosion: {fileID: 8003986732107205662, guid: 6a2d63b157353f44f85c32a27400f861, type: 3}
+--- !u!114 &-3132408663493108079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1520264310067943007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23a9e3e9b4a80334fa1bd9d8362277d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!64 &7137151276243688556
 MeshCollider:
   m_ObjectHideFlags: 0
