@@ -5,6 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public float movementSpeed = 5f, rotationSpeed = 150f;
+    public int vieMax = 100;
 
     public GameObject missile, canon;
     public GameObject explosion;
@@ -12,7 +13,7 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        Vie vie = new Vie(vieMax);
     }
 
     // Update is called once per frame
