@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class VaisseauTirailleur : MonoBehaviour
 {
-    public float movementSpeed = 3f, rotationSpeed = 100f;
+    public float movementSpeed = 5f, rotationSpeed = 150f;
+    public int vieMax = 50;
     public GameObject missile, canonLeft, canonRight;
 
     // Start is called before the first frame update
     void Start()
     {
         InvokeRepeating("ShootMissles", 1.0f, 1.0f);
+        Vie vie = new Vie(vieMax);
     }
 
     // Update is called once per frame
