@@ -549,7 +549,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4475935121839900837}
   - component: {fileID: -3282066512840930495}
-  - component: {fileID: 7807238119495709210}
+  - component: {fileID: -5094936728654440470}
   m_Layer: 0
   m_Name: VaisseauTirailleur
   m_TagString: Tirailleur
@@ -593,21 +593,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: 3
   rotationSpeed: 100
+  vieMax: 50
   missile: {fileID: 2735180690616760460, guid: 556ed05b0c06cff47809c6e21e7802df, type: 3}
   canonLeft: {fileID: 0}
   canonRight: {fileID: 0}
---- !u!114 &7807238119495709210
-MonoBehaviour:
+--- !u!64 &-5094936728654440470
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4475935121839900836}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 23a9e3e9b4a80334fa1bd9d8362277d4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 0}
 --- !u!1 &4475935122033650354
 GameObject:
   m_ObjectHideFlags: 0
