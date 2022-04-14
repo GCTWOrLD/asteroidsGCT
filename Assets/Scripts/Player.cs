@@ -13,7 +13,7 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Vie vie = new Vie(vieMax);
+
     }
 
     // Update is called once per frame
@@ -39,7 +39,45 @@ public class Player : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         //Instantiate(explosion, other.transform.position, other.transform.rotation);
-        Destroy(gameObject);
-        Destroy(other.gameObject);
+        if (other.gameObject.CompareTag("Asteroid"))
+        {
+            Debug.Log("Collision Asteroid");
+            Destroy(other.gameObject);
+            vieMax -= 25;
+            if (vieMax == 0)
+            {
+                Destroy(gameObject);
+            }
+        } 
+        else if (other.gameObject.CompareTag("Brigand"))
+        {
+            Debug.Log("Collision Brigand");
+            Destroy(other.gameObject);
+            vieMax -= 50;
+            if (vieMax == 0)
+            {
+                Destroy(gameObject);
+            }
+        }
+        else if (other.gameObject.CompareTag("Tirailleur"))
+        {
+            Debug.Log("Collision Trailleureur");
+            Destroy(other.gameObject);
+            vieMax -= 25;
+            if (vieMax == 0)
+            {
+                Destroy(gameObject);
+            }
+        }
+        else if (other.gameObject.CompareTag("Soin"))
+        {
+            Debug.Log("Collision Soin");
+            Destroy(other.gameObject);
+            vieMax += 25;
+            if (vieMax > 100)
+            {
+                vieMax = 100;
+            }
+        }
     }
 }
