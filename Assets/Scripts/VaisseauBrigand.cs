@@ -6,7 +6,7 @@ using UnityEngine.AI;
 public class VaisseauBrigand : MonoBehaviour
 {
     public float movementSpeed = 1.5f, rotationSpeed = 100f;
-    private int vieMax = 150;
+    public int vieMax = 150;
     private Transform joueur;
 
     // Start is called before the first frame update
@@ -21,5 +21,28 @@ public class VaisseauBrigand : MonoBehaviour
     {
         transform.LookAt(joueur);
         transform.position += transform.forward * movementSpeed * Time.deltaTime;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Asteroid"))
+        {
+            Debug.Log("Collision Asteroid");
+            Destroy(other.gameObject);
+            vieMax -= 25;
+            if (vieMax == 0)
+            {
+                Destroy(gameObject);
+            }
+        }
+        else if (other.gameObject.CompareTag("Player"))
+        {
+            Debug.Log("Collision Player");
+            vieMax -= 25;
+            if (vieMax == 0)
+            {
+                Destroy(gameObject);
+            }
+        }
     }
 }
