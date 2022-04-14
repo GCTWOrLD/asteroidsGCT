@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -44,30 +45,18 @@ public class Player : MonoBehaviour
             Debug.Log("Collision Asteroid");
             Destroy(other.gameObject);
             vieMax -= 25;
-            if (vieMax == 0)
-            {
-                Destroy(gameObject);
-            }
         } 
         else if (other.gameObject.CompareTag("Brigand"))
         {
             Debug.Log("Collision Brigand");
             Destroy(other.gameObject);
             vieMax -= 50;
-            if (vieMax == 0)
-            {
-                Destroy(gameObject);
-            }
         }
         else if (other.gameObject.CompareTag("Tirailleur"))
         {
             Debug.Log("Collision Trailleureur");
             Destroy(other.gameObject);
             vieMax -= 25;
-            if (vieMax == 0)
-            {
-                Destroy(gameObject);
-            }
         }
         else if (other.gameObject.CompareTag("Soin"))
         {
@@ -78,6 +67,11 @@ public class Player : MonoBehaviour
             {
                 vieMax = 100;
             }
+        }
+        if (vieMax == 0)
+        {
+            Destroy(gameObject);
+            SceneManager.LoadScene("GameOver");
         }
     }
 }
