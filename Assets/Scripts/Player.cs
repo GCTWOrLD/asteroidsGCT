@@ -7,6 +7,8 @@ public class Player : MonoBehaviour
 {
     public float movementSpeed = 5f, rotationSpeed = 150f;
     public int vieMax = 100;
+    public int nbPointsTirailleur = 3;
+    public int nbPointsAsteroid = 1;
 
     public GameObject missile, canon;
     public GameObject explosion;
@@ -42,25 +44,22 @@ public class Player : MonoBehaviour
         //Instantiate(explosion, other.transform.position, other.transform.rotation);
         if (other.gameObject.CompareTag("Asteroid"))
         {
-            Debug.Log("Collision Asteroid");
             Destroy(other.gameObject);
+            ScoreManager.Instance.AddScore(nbPointsAsteroid);
             vieMax -= 25;
         } 
         else if (other.gameObject.CompareTag("Brigand"))
         {
-            Debug.Log("Collision Brigand");
-            Destroy(other.gameObject);
             vieMax -= 50;
         }
         else if (other.gameObject.CompareTag("Tirailleur"))
         {
-            Debug.Log("Collision Trailleureur");
             Destroy(other.gameObject);
-            vieMax -= 25;
+            ScoreManager.Instance.AddScore(nbPointsTirailleur);
+            vieMax -= 50;
         }
         else if (other.gameObject.CompareTag("Soin"))
         {
-            Debug.Log("Collision Soin");
             Destroy(other.gameObject);
             vieMax += 25;
             if (vieMax > 100)
@@ -68,7 +67,12 @@ public class Player : MonoBehaviour
                 vieMax = 100;
             }
         }
-        if (vieMax == 0)
+        else if (other.gameObject.CompareTag("MissleT"))
+        {
+            vieMax -= 25;
+        }
+
+        if (vieMax <= 0)
         {
             Destroy(gameObject);
             SceneManager.LoadScene("GameOver");

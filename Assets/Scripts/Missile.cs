@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Missile : MonoBehaviour
 {
-    public float movementSpeed = 5f;
+    public float movementSpeed = 3f;
+    public int nbPointsTirailleur = 3;
 
     public GameObject explosion;
 
@@ -36,6 +37,20 @@ public class Missile : MonoBehaviour
             //var asteroid = other.transform.GetComponent<Asteroid>();
             //if (asteroid != null)
             //    asteroid.Explode();
+        }
+        else if (other.gameObject.CompareTag("Tirailleur"))
+        {
+            ScoreManager.Instance.AddScore(nbPointsTirailleur);
+            Destroy(gameObject);
+            Destroy(other.gameObject);
+        }
+        else if (other.gameObject.CompareTag("Brigand"))
+        {
+            Destroy(gameObject);
+        }
+        else if (other.gameObject.CompareTag("Player"))
+        {
+            Destroy(gameObject);
         }
     }
 }
