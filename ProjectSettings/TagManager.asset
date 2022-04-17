@@ -10,6 +10,9 @@ TagManager:
   - Tirailleur
   - Soin
   - VieTexte
+  - ScoreManager
+  - Missle
+  - MissleT
   layers:
   - Default
   - TransparentFX
