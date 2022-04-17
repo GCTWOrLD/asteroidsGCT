@@ -6,6 +6,8 @@ public class VaisseauTirailleur : MonoBehaviour
 {
     public float movementSpeed = 5f, rotationSpeed = 150f;
     public int vieMax = 50;
+    public int nbPoints = 3;
+
     public GameObject missile, canonLeft, canonRight;
 
     private Transform joueur;
@@ -42,21 +44,12 @@ public class VaisseauTirailleur : MonoBehaviour
         // Subira des dommages s'il entre en collision avec un astéroide ou joueur (fonctionne seulement avec astéroide)
         if (other.gameObject.CompareTag("Asteroid"))
         {
-            Debug.Log("Collision Asteroid");
             Destroy(other.gameObject);
             vieMax -= 25;
             if (vieMax == 0)
             {
                 Destroy(gameObject);
-            }
-        }
-        else if (other.gameObject.CompareTag("Player"))
-        {
-            Debug.Log("Collision Player");
-            vieMax -= 25;
-            if (vieMax == 0)
-            {
-                Destroy(gameObject);
+                ScoreManager.Instance.AddScore(nbPoints);
             }
         }
     }
