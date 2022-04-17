@@ -9,6 +9,7 @@ TagManager:
   - Brigand
   - Tirailleur
   - Soin
+  - VieTexte
   layers:
   - Default
   - TransparentFX
